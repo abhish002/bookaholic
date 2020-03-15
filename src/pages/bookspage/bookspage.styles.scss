@@ -1,0 +1,16 @@
+.books-page {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+
+    .books-page__list-name {
+        width: 100%;
+        text-transform: capitalize;
+        margin: 20px;
+        text-align: center;
+
+        @media(min-width: 768px) {
+            text-align: left;
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import { LOAD_LISTS } from '../../constants/action-types.constants';
+import { LOAD_LISTS, TOGGLE_DETAILS } from '../../constants/action-types.constants';
 
 export function getLists() {
   return function (dispatch) {
@@ -16,3 +16,7 @@ export function getLists() {
       });
   }
 };
+
+export const toggleDetails = () => ({
+  type: TOGGLE_DETAILS,  
+});

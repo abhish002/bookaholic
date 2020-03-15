@@ -12,9 +12,10 @@ class Directory extends Component {
   }
 
   render() {
-    const directoryItems = this.props.lists.map(({ list_id, ...otherProps }) => {
+    const directoryItems = this.props.lists.map(lists => {
+      const {list_id} = lists;
       return (
-        <DirectoryItem key={list_id} {...otherProps} />
+        <DirectoryItem key={list_id} {...lists} />
       )
     })
     return (
