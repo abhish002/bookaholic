@@ -1,0 +1,14 @@
+.book-details {
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+
+    span {
+        margin-bottom: 5px;
+        width: 100%;
+
+        &:last-child {
+            margin-top: 20px;
+        }
+    }
+}

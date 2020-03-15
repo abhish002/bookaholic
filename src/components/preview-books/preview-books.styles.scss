@@ -4,5 +4,26 @@
   .preview-books__cover-image {
     width: 320px;
     height: 500px;
+
+    &:hover {
+      opacity: 0.1;      
+    }
+
+    .--focus{
+      opacity: 0.1;
+    }
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .preview-books__book-details {
+    position: absolute;
+    padding: 0 10px;
+    width: 300px;
+    height: 500px;
+    top: 342px;
+    z-index: 99;    
   }
 }

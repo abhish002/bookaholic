@@ -11,6 +11,9 @@ export default function Header() {
       <Link className='header__application-title' to='/'>
         <h1>{APPLICATION_TITLE}</h1>
       </Link>
+      <div className='header__nav'>
+      <Link to='/'>View lists</Link>
+      </div>
     </div>
   )
 }

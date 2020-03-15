@@ -5,14 +5,15 @@ import PreviewBooks from '../../components/preview-books/preview-books.component
 
 import { connect } from 'react-redux';
 import { getLists } from '../../redux/actions/books.actions';
+import { selectLists } from '../../redux/selectors/books.selector';
 
 class BooksPage extends Component {
-    componentDidMount() {
-        const { lists, getLists } = this.props;
-        if (lists.length === 0) {
-            getLists();
-        }
-    }
+    // componentDidMount() {
+    //     const { lists, getLists } = this.props;
+    //     if (lists.length === 0) {
+    //         getLists();
+    //     }
+    // }
 
     render() {
         console.log(this.props);
@@ -24,9 +25,11 @@ class BooksPage extends Component {
         const list = lists.filter(list => list.list_id === parseInt(listId));
         console.log(list);
 
-        const { display_name, books } = list[0];
+        const { display_name, books } = list[0] || '';
 
-        const previewBooksList = books.map(book => {
+        const filteredBooks = books && books.filter((book, i) => i < 4);
+
+        const previewBooksList = filteredBooks && filteredBooks.map(book => {
             const { book_uri } = book;
             return (
                 <PreviewBooks key={book_uri} {...book} />
@@ -42,13 +45,13 @@ class BooksPage extends Component {
     }
 }
 
-const mapStateToprops = ({ books: { lists } }) => ({
-    lists,
+const mapStateToprops = ({ books }) => ({
+    lists: selectLists(books),
 });
 
-const mapDispatchToprops = dispatch => ({
-    getLists: () => dispatch(getLists())
-});
+// const mapDispatchToprops = dispatch => ({
+//     getLists: () => dispatch(getLists())
+// });
 
-export default connect(mapStateToprops, mapDispatchToprops)(BooksPage);
+export default connect(mapStateToprops)(BooksPage);
 
