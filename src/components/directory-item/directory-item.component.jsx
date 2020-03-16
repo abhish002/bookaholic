@@ -1,7 +1,7 @@
 import React from 'react';
 import './directory-item.styles.scss';
 
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function DirectoryItem({ list_id, display_name, list_image, updated, history, match }) {
   return (

@@ -4,17 +4,10 @@ import './bookspage.styles.scss';
 import PreviewBooks from '../../components/preview-books/preview-books.component';
 
 import { connect } from 'react-redux';
-import { getLists } from '../../redux/actions/books.actions';
+
 import { selectLists } from '../../redux/selectors/books.selector';
 
 class BooksPage extends Component {
-    // componentDidMount() {
-    //     const { lists, getLists } = this.props;
-    //     if (lists.length === 0) {
-    //         getLists();
-    //     }
-    // }
-
     render() {
         console.log(this.props);
         const { match, lists } = this.props;
@@ -48,10 +41,6 @@ class BooksPage extends Component {
 const mapStateToprops = ({ books }) => ({
     lists: selectLists(books),
 });
-
-// const mapDispatchToprops = dispatch => ({
-//     getLists: () => dispatch(getLists())
-// });
 
 export default connect(mapStateToprops)(BooksPage);
 

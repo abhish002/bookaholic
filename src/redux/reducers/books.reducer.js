@@ -1,9 +1,7 @@
 import { LOAD_LISTS } from '../../constants/action-types.constants';
 
 const INITIAL_STATE = {
-    lists: [],
-    hidden: true,
-    hideClass: 'hide'
+    lists: []
 };
 
 const booksReducer = (state = INITIAL_STATE, action) => {

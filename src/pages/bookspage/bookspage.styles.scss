@@ -1,13 +1,19 @@
 .books-page {
     display: flex;
     flex-flow: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
 
     .books-page__list-name {
         width: 100%;
         text-transform: capitalize;
         margin: 30px;
         text-align: center;
+
+        &:last-child {
+            .preview-books__book-details {
+                top: 860px;
+            }
+        }
 
         @media(min-width: 768px) {
             text-align: left;

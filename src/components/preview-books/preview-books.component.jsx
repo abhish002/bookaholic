@@ -13,18 +13,12 @@ class PreviewBooks extends Component {
 
   handleMouseEnter = (e) => {
     this.bookDetailsRef.current.classList.remove('hide');
+    this.bookDetailsRef.current.focus();
   }
 
   handleMouseLeave = (e) => {
     this.bookDetailsRef.current.classList.add('hide');
-  }
-
-  // handleClick = () => {
-  //   const { hidden, toggleDetails } = this.props;
-  //   toggleDetails();
-  //   hidden ?
-  //     this.bookDetailsRef.current.classList.add('hide') : this.bookDetailsRef.current.classList.remove('hide');
-  // }  
+  } 
 
   render() {
     const { book_image, hideClass, ...remainingProps } = this.props;
@@ -34,10 +28,9 @@ class PreviewBooks extends Component {
           <img src={book_image} alt='' className='preview-books__cover-image'
             onMouseEnter={this.handleMouseEnter}
             onMouseLeave={this.handleMouseLeave}
-            onTouchStart={this.handleMouseEnter}
           />
         </div>
-        <div className={'preview-books__book-details hide'} ref={this.bookDetailsRef} onf>
+        <div className={'preview-books__book-details hide'} ref={this.bookDetailsRef} >
           <BookDetails {...remainingProps} />
         </div>
       </div>
